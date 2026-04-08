@@ -4,20 +4,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Produto p = new Produto();
+        System.out.println("Digite o tipo de animal (cachorro/gato):");
+        int escolha = scanner.nextInt();
 
-        System.out.print("Digite o nome do produto: ");
-        p.nome = scanner.nextLine();
+        Animal animalSelecionado;
+        if (escolha == 1) {
+            animalSelecionado = new Cachorro();
+        } else if (escolha == 2) {
+            animalSelecionado = new Gato();
+        } else {
+            System.out.println("Opção inválida.");
+            return;
+        }
 
-        System.out.print("Digite o preço do produto: ");
-        p.preco = scanner.nextDouble();
-
-        System.out.print("Digite a quantidade do produto: ");
-        p.quantidade = scanner.nextInt();
-
-        System.out.println("\nDados do produto:");
-        p.exibirDados();
-
+        animalSelecionado.fazerSom();
         scanner.close();
     }
 }
